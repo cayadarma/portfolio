@@ -1,0 +1,591 @@
+/* THEME VARIABLES */
+
+/* LIGHT MODE (default) */
+:root {
+    --color-primary: #6367FF;
+    --color-secondary: #8494FF;
+    --color-accent: #C9BEFF;
+    --color-soft: #FFDBFD;
+
+    --icon-color: #6367FF;
+
+    --bg-body: #fffdf9;
+    --bg-surface: #FFFFFF;
+    --bg-navbar: var(--color-primary);
+
+    --text-main: #2B2B3D;
+    --text-muted: #6E6E80;
+    --text-on-primary: #FFFFFF;
+
+    --border-color: var(--color-accent);
+    --card-bg: #FFFFFF;
+    --card-shadow: rgba(99, 103, 255, 0.15);
+
+    --btn-bg: var(--color-primary);
+    --btn-bg-hover: var(--color-secondary);
+
+    --transition-speed: 0.35s;
+
+    
+}
+
+/* DARK MODE */
+[data-theme="dark"] {
+    --color-primary: #2F2FE4;
+    --color-secondary: #162E93;
+    --color-accent: #1A1953;
+    --color-soft: #080616;
+
+    --icon-color: #8494FF;
+
+    --bg-body: #080616;
+    --bg-surface: #1A1953;
+    --bg-navbar: #1A1953;
+
+    --text-main: #EDEDF7;
+    --text-muted: #A9A9C9;
+    --text-on-primary: #FFFFFF;
+
+    --border-color: #2F2FE4;
+    --card-bg: #162E93;
+    --card-shadow: rgba(47, 47, 228, 0.35);
+
+    --btn-bg: #2F2FE4;
+    --btn-bg-hover: #162E93;
+}
+
+/* ============================
+   GLOBAL STYLE
+   ============================ */
+
+* {
+    transition: background-color var(--transition-speed) ease,
+                color var(--transition-speed) ease,
+                border-color var(--transition-speed) ease,
+                box-shadow var(--transition-speed) ease;
+}
+
+body {
+    background-color: var(--bg-body);
+    color: var(--text-main);
+    font-family: 'Poppins', 'Segoe UI', sans-serif;
+}
+
+/* Navbar custom */
+.navbar-custom {
+    background-color: var(--bg-navbar) !important;
+}
+
+.navbar-custom .nav-link,
+.navbar-custom .navbar-brand {
+    color: var(--text-on-primary) !important;
+}
+
+/* Highlight menu aktif (dari scrollspy) */
+.navbar-custom .nav-link.active {
+    font-weight: 700;
+    border-bottom: 2px solid #fff;
+}
+
+/* Navbar toggler dark/light mode */
+.navbar-toggler {
+    border-color: var(--text-on-primary);
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='white' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* Smooth scroll saat klik anchor navbar */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Supaya section tidak "ketutupan" navbar sticky saat anchor jump */
+section[id] {
+    scroll-margin-top: 80px;
+}
+
+/* Button custom */
+.btn-theme {
+    background-color: var(--btn-bg);
+    border: none;
+    color: #fff;
+    border-radius: 8px;
+    padding: 10px 24px;
+    font-weight: 500;
+}
+
+.btn-theme:hover {
+    background-color: var(--btn-bg-hover);
+    color: #fff;
+}
+
+.btn-theme-outline {
+    background-color: transparent;
+    border: 2px solid var(--color-primary);
+    color: var(--color-primary);
+    border-radius: 8px;
+    padding: 10px 24px;
+    font-weight: 500;
+}
+
+[data-theme="dark"] .btn-theme-outline {
+    color: var(--text-main);
+    border-color: var(--color-primary);
+}
+
+.btn-theme-outline:hover {
+    background-color: var(--color-primary);
+    color: #fff;
+}
+
+/* Card custom */
+.card-theme {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    color: var(--text-main);
+    box-shadow: 0 4px 16px var(--card-shadow);
+}
+
+.card-theme:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px var(--card-shadow);
+}
+
+.card-theme .card-title {
+    color: var(--text-main);
+}
+
+.card-theme .card-text {
+    color: var(--text-muted) !important;
+}
+
+/* Section spacing */
+.section-padding {
+    padding: 80px 0;
+}
+
+/* Theme toggle button */
+.theme-toggle-btn {
+    border: none;
+    background: transparent;
+    color: var(--text-on-primary);
+    font-size: 1.3rem;
+    cursor: pointer;
+}
+
+/* ============================
+   HERO SECTION STYLE
+   ============================ */
+
+.hero-greeting {
+    color: var(--color-primary);
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.hero-name {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--text-main);
+    letter-spacing: -1px;
+}
+
+.hero-role {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--color-primary);
+}
+
+.hero-desc {
+    font-size: 1.05rem;
+    color: var(--text-muted);
+    max-width: 520px;
+    line-height: 1.7;
+}
+
+/* Foto profil dengan border gradient ala "premium" */
+.hero-photo-wrapper {
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    padding: 6px;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+}
+
+.hero-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid var(--bg-body);
+}
+
+/* ============================
+   ANIMASI: FADE IN UP
+   ============================ */
+
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ============================
+   ANIMASI: SCROLL HINT BOUNCE
+   ============================ */
+.scroll-hint-wrapper {
+    display: block;
+    width: 100%;
+    clear: both;
+    margin-top: 32px;
+    text-align: center;
+}
+
+.scroll-hint-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: var(--color-primary);
+
+    color: #fff;
+    font-size: 1.4rem;
+    text-decoration: none;
+
+    box-shadow: 0 4px 14px var(--card-shadow);
+
+    opacity: 0;
+    animation: fadeInUp 0.8s ease forwards;
+    animation-delay: 1s;
+}
+
+.scroll-hint-link:hover {
+    background-color: var(--color-secondary);
+}
+
+.scroll-bounce {
+    display: inline-block;
+    animation: bounce 1.4s infinite;
+    animation-delay: 1.8s;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(6px); }
+}
+
+/* Khusus desktop (lg ke atas): lepas dari alur, tempel di bawah section */
+@media (min-width: 992px) {
+    .scroll-hint-wrapper {
+        position: absolute;
+        bottom: 24px;
+        left: 0;
+        right: 0;
+        margin-top: 0;
+    }
+}
+
+/* ============================
+   RESPONSIVE HERO (mobile)
+   ============================ */
+
+@media (max-width: 991px) {
+    .hero-photo-wrapper {
+        width: 220px;
+        height: 220px;
+        margin-bottom: 1.5rem;
+    }
+
+    .hero-name {
+        font-size: 2.2rem;
+    }
+
+    .hero-role {
+        font-size: 1.2rem;
+    }
+
+    /* TAMBAHAN: kasih jarak lebih lega antar elemen teks hero */
+    .hero-greeting {
+        margin-bottom: 0.75rem !important;
+    }
+
+    .hero-name {
+        margin-bottom: 0.5rem !important;
+    }
+
+    .hero-role {
+        margin-bottom: 1.25rem !important;
+    }
+
+    .hero-desc {
+        margin-bottom: 2rem !important;
+        max-width: 100%;
+    }
+
+    /* Beri jarak dari navbar di paling atas */
+    .hero-section {
+        padding-top: 40px;
+    }
+}
+
+/* ============================
+   SKILL CARD
+   ============================ */
+
+.skill-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 14px;
+    padding: 24px 16px;
+    height: 100%;
+}
+
+.skill-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px var(--card-shadow);
+}
+
+.skill-icon {
+    font-size: 2.2rem;
+    color: var(--icon-color);
+    margin-bottom: 10px;
+    display: block;
+}
+
+.skill-name {
+    font-weight: 500;
+    color: var(--text-main);
+    font-size: 0.95rem;
+}
+
+/* ============================
+   PROJECT CARD
+   ============================ */
+
+.project-card-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.badge-tech {
+    display: inline-block;
+    background-color: var(--color-accent);
+    color: var(--text-on-primary);
+    font-size: 0.78rem;
+    font-weight: 500;
+    padding: 5px 12px;
+    border-radius: 20px;
+    margin-right: 6px;
+    margin-bottom: 6px;
+}
+
+[data-theme="dark"] .badge-tech {
+    background-color: var(--color-secondary);
+    color: #EDEDF7;
+}
+
+/* ============================
+   SECTION TITLE (reusable, semua page)
+   ============================ */
+
+.section-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 0.5rem;
+}
+
+.section-subtitle {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    margin-bottom: 3rem;
+}
+
+/* ============================
+   TIMELINE (About page)
+   ============================ */
+
+.timeline-item {
+    border-left: 3px solid var(--color-primary);
+    padding-left: 20px;
+    margin-bottom: 28px;
+    position: relative;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -8px;
+    top: 4px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-color: var(--color-primary);
+}
+
+.timeline-title {
+    font-weight: 600;
+    color: var(--text-main);
+    margin-bottom: 2px;
+}
+
+.timeline-period {
+    color: var(--color-primary);
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.timeline-desc {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-top: 6px;
+}
+
+/* ============================
+   CONTACT CARD
+   ============================ */
+
+.contact-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 28px;
+    text-align: center;
+    display: block;
+}
+
+.contact-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px var(--card-shadow);
+}
+
+.contact-icon {
+    font-size: 2.5rem;
+    color: var(--color-primary);
+    margin-bottom: 10px;
+    display: block;
+}
+
+.contact-label {
+    font-weight: 600;
+    color: var(--text-main);
+    margin-bottom: 2px;
+}
+
+.contact-value {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 0;
+}
+
+/* ============================
+   RESPONSIVE TYPOGRAPHY
+   ============================ */
+
+.section-title {
+    font-size: clamp(1.7rem, 4vw, 2.2rem);
+}
+
+.hero-name {
+    font-size: clamp(2rem, 6vw, 3rem);
+}
+
+/* ============================
+   RESPONSIVE SPACING
+   ============================ */
+
+.section-padding {
+    padding: 60px 0;
+}
+
+@media (min-width: 768px) {
+    .section-padding {
+        padding: 80px 0;
+    }
+}
+
+/* ============================
+   MOBILE: navbar dropdown background
+   ============================ */
+
+@media (max-width: 991px) {
+    .navbar-collapse {
+        background-color: var(--bg-navbar);
+        padding: 16px;
+        border-radius: 12px;
+        margin-top: 10px;
+    }
+
+    .nav-anchor {
+        padding: 8px 0;
+    }
+}
+
+/* ============================
+   MOBILE: project & skill grid lebih rapat
+   ============================ */
+
+@media (max-width: 575px) {
+    .container {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .skill-card {
+        padding: 18px 10px;
+    }
+
+    .skill-icon {
+        font-size: 1.8rem;
+    }
+}
+
+/* ============================
+   TABLET: project card 2 kolom rapi
+   ============================ */
+
+@media (min-width: 576px) and (max-width: 991px) {
+    .project-card-img {
+        height: 220px;
+    }
+}
+
+/* ============================
+   MENCEGAH HORIZONTAL SCROLL TIDAK SENGAJA
+   ============================ */
+
+body {
+    overflow-x: hidden;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* PROJECT GALLERY */
+.project-gallery-img {
+    height: 500px;
+    object-fit: contain;
+    background-color: var(--bg-body);
+}
+
+
+.modal-content {
+    border-radius: 16px;
+    overflow: hidden;
+}
