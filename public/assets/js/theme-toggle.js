@@ -1,4 +1,39 @@
 // ============================
+// THEME TOGGLE LOGIC
+// ============================
+
+document.addEventListener('DOMContentLoaded', function () {
+
+    const htmlEl = document.documentElement;
+    const toggleBtn = document.getElementById('themeToggleBtn');
+    const themeIcon = document.getElementById('themeIcon');
+
+    const currentTheme = localStorage.getItem('theme') || 'dark';
+
+    applyTheme(currentTheme);
+
+    toggleBtn.addEventListener('click', function () {
+        const isDark = htmlEl.getAttribute('data-theme') === 'dark';
+        const newTheme = isDark ? 'light' : 'dark';
+
+        applyTheme(newTheme);
+        localStorage.setItem('theme', newTheme);
+    });
+
+    function applyTheme(theme) {
+        if (theme === 'dark') {
+            htmlEl.setAttribute('data-theme', 'dark');
+            themeIcon.classList.remove('bi-moon-stars-fill');
+            themeIcon.classList.add('bi-sun-fill');
+        } else {
+            htmlEl.removeAttribute('data-theme');
+            themeIcon.classList.remove('bi-sun-fill');
+            themeIcon.classList.add('bi-moon-stars-fill');
+        }
+    }
+});
+
+// ============================
 // AUTO-CLOSE NAVBAR MOBILE SAAT KLIK ANCHOR
 // ============================
 document.addEventListener('DOMContentLoaded', function () {
