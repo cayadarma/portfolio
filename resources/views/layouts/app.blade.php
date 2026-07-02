@@ -54,4 +54,11 @@
 
     @yield('extra-js')
 </body>
+
+<script>
+    const dataSpyList = document.querySelectorAll('[data-bs-spy="scroll"]')
+    dataSpyList.forEach(spy => {
+        bootstrap.ScrollSpy.getOrCreateInstance(spy).refresh()
+    })
+</script>
 </html>
