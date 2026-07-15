@@ -18,7 +18,7 @@
                 <p class="hero-desc mb-5 fade-in-up" style="animation-delay: 0.55s;">{{ $profile['description'] }}</p>
                 <div class="d-flex gap-3 justify-content-center justify-content-lg-start fade-in-up" style="animation-delay: 0.7s;">
                     <a href="#projects" class="btn-theme">Lihat Project</a>
-                    <a href="{{ asset('assets/files/CV_CAHYA_DARMA.pdf') }}" download class="btn-theme-outline">
+                    <a href="{{ asset('assets/files/CV CAHYA DARMA W.pdf') }}" download class="btn-theme-outline">
                         <i class="bi bi-download"></i> Download CV
                     </a>
                 </div>
